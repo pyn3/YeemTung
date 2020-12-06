@@ -46,9 +46,12 @@ $colors: (
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
-
-
-
+ion-header{
+  padding-top: 20px;
+}
+ion-title{
+  align: center;
+}
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
@@ -71,7 +74,9 @@ $colors: (
 // default are overridden.
 
 @import "ionic.theme.default";
-
+ion-navbar {
+  background-color: #397ffc;
+}
 
 // Ionicons
 // --------------------------------------------------
