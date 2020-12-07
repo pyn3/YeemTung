@@ -7,15 +7,39 @@
 </ion-header>
 
 <ion-content style="margin: 0">
-  <ion-row class ="align-items-flex-end" style="padding-top: 30px;">
+  <ion-grid>
+    <ion-row>
+      <h6>Add Your Transaction Here!:</h6>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <div>
+          <ion-input no-lines [(ngModel)]="lender" placeholder="Lender"></ion-input>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div align="center" style="padding-top: 10px">
+          <ion-icon name="arrow-round-forward"></ion-icon>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-input no-lines [(ngModel)]="borrower" placeholder="borrower"></ion-input>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-row>
     <ion-col>
-      <ion-item no-lines>input1</ion-item>
-    </ion-col>
-    <ion-col class="ion-text-center">
-      <ion-item no-lines><ion-icon name="arrow-round-forward"></ion-icon></ion-item>
-    </ion-col>
-    <ion-col>
-      <ion-item no-lines>input2</ion-item>
+      <ion-input type="tel" no-lines [(ngModel)]="money" placeholder="Amount" full style="width: 100%"></ion-input>
     </ion-col>
   </ion-row>
+  <ion-row>
+    <ion-col>
+      <ion-item no-lines><button ion-button (click)=" input(lender,borrower,money); lender = '';money = '';borrower='' "
+          full>Add Transaction</button>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
 </ion-content>

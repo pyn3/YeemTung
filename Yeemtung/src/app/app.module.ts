@@ -11,7 +11,8 @@ import { IonicStorageModule } from '@ionic/storage'
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs'
 import { HistoryPage } from '../pages/history/history'
-import {AnalysisPage} from '../pages/analysis/analysis'
+import { AnalysisPage } from '../pages/analysis/analysis'
+import { MoneyProvider } from '../providers/money/money';
 @NgModule({
   declarations: [
     MyApp,
@@ -38,7 +39,8 @@ import {AnalysisPage} from '../pages/analysis/analysis'
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    MoneyProvider
   ]
 })
 export class AppModule { }
