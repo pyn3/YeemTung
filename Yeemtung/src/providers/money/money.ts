@@ -1,16 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Money } from '../../models/money.model'
-
-/*
-  Generated class for the MoneyProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class MoneyProvider {
-  private tempURL = 'http://66d994d83950.ngrok.io/'
+  private tempURL = 'http://fd1d38cc70d6.ngrok.io/'
 
   constructor(public http: HttpClient) {
     console.log('Hello MoneyProvider Provider');
@@ -24,6 +17,7 @@ export class MoneyProvider {
       'money': money,
     }).subscribe(data => { console.log(data) })
   }
+
   getMoney(itemList, pageNumber, event) {
 
     return this.http.get<Money>(this.tempURL + 'history?number=' + pageNumber.toString()).subscribe(data => {

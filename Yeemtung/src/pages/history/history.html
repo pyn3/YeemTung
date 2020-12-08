@@ -7,27 +7,25 @@
 <ion-header>
   <ion-navbar>
     <ion-title>History</ion-title>
-    <button ion-button (click)="refresh()" clear aligin='left'>
+    <button ion-button (click)="refresh()" clear>
       <ion-icon name="refresh"></ion-icon>
     </button>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content padding fullscreen>
-  <ion-refresher slot="fixed" (ionRefresh)="refresh()">
-  </ion-refresher>
+<ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let item of itemListData">
-      <div>{{item.Money}}</div>
-      <div>{{item.lender}}</div>
-      <div>{{item.borrower}}</div>
-      <div>{{item.money}}</div>
-      <div>{{item.time}}</div>
+    <ion-item *ngFor="let item of itemListData" class="background">
+      <p>{{item.Money}}</p>
+      <p>{{item.lender}}</p>
+      <p>{{item.borrower}}</p>
+      <p>{{item.money}}</p>
+      <p>{{item.time}}</p>
     </ion-item>
   </ion-list>
-  <ion-infinite-scroll (ionInfinite)='doInfiniteScroll($event);'>
-    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingtext="loading">
+  <ion-infinite-scroll (ionInfinite) = 'doInfiniteScroll($event)'>
+    <ion-infinite-scroll-content loadingSpinner = "bubbles" loadingtext = "loading">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
-</ion-content>
+ </ion-content>

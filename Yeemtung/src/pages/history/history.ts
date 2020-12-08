@@ -26,17 +26,17 @@ export class HistoryPage {
     console.log('ionViewDidLoad HistoryPage');
   }
 
-  refresh(){
+  refresh() {
     this.navCtrl.setRoot(this.navCtrl.getActive().component);
   }
-
   doInfiniteScroll(event) {
-    if (this.pageNumber * 20 == 1020) {
+    this.pageNumber++
+    if (this.pageNumber * 20 == 10000) {
       event.enable(false);
     }
     else {
-      this.pageNumber++
       this.MoneyProvider.getMoney(this.itemListData, this.pageNumber * 20, event)
-    }
   }
+  }
+
 }
