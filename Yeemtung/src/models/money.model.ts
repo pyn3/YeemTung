@@ -1,4 +1,4 @@
 export interface Money{
 
 }
-//Retive data
+//Retrive data

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Money } from '../../models/money.model'
 
 /*
   Generated class for the MoneyProvider provider.
@@ -9,7 +10,7 @@ import { Injectable } from '@angular/core';
 */
 @Injectable()
 export class MoneyProvider {
-  private tempURL = 'http://0bd3d6f2cdf1.ngrok.io/'
+  private tempURL = 'http://66d994d83950.ngrok.io/'
 
   constructor(public http: HttpClient) {
     console.log('Hello MoneyProvider Provider');
@@ -17,10 +18,22 @@ export class MoneyProvider {
 
   addData(time, lender, borrower, money) {
     this.http.post(this.tempURL + 'insertdata', {
-      'Time': time,
-      'Lender': lender,
+      'time': time,
+      'lender': lender,
       'borrower': borrower,
-      'Money': money,
+      'money': money,
     }).subscribe(data => { console.log(data) })
+  }
+  getMoney(itemList, pageNumber, event) {
+
+    return this.http.get<Money>(this.tempURL + 'history?number=' + pageNumber.toString()).subscribe(data => {
+      console.log(this.tempURL + pageNumber.toString())
+      for (let i = 0; i < data['data'].length; i++) {
+        itemList.push(data['data'][i])
+      }
+      if (pageNumber != 0) {
+        event.complete()
+      }
+    });
   }
 }

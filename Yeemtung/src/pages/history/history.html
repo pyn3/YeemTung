@@ -7,9 +7,27 @@
 <ion-header>
   <ion-navbar>
     <ion-title>History</ion-title>
+    <button ion-button (click)="refresh()" clear aligin='left'>
+      <ion-icon name="refresh"></ion-icon>
+    </button>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
 
+<ion-content padding fullscreen>
+  <ion-refresher slot="fixed" (ionRefresh)="refresh()">
+  </ion-refresher>
+  <ion-list>
+    <ion-item *ngFor="let item of itemListData">
+      <div>{{item.Money}}</div>
+      <div>{{item.lender}}</div>
+      <div>{{item.borrower}}</div>
+      <div>{{item.money}}</div>
+      <div>{{item.time}}</div>
+    </ion-item>
+  </ion-list>
+  <ion-infinite-scroll (ionInfinite)='doInfiniteScroll($event);'>
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingtext="loading">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
