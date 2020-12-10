@@ -4,12 +4,29 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header translucent>
   <ion-navbar>
     <ion-title>Analysis</ion-title>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <p text-center>Select transactions amount:</p>
+  <ion-segment scrollable (ionChange)="segmentChanged($event)" value="10">
+    <ion-segment-button value="0">
+      All
+    </ion-segment-button>
+    <ion-segment-button value="10">
+      10
+    </ion-segment-button>    
+    <ion-segment-button value="50">
+      100
+    </ion-segment-button>    
+    <ion-segment-button value="100">
+      100
+    </ion-segment-button>
+  </ion-segment>
+  
+  <img src="{{piclink}}">
 </ion-content>

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Money } from '../../models/money.model'
 @Injectable()
 export class MoneyProvider {
-  private tempURL = 'http://fd1d38cc70d6.ngrok.io/'
+  private tempURL = 'http://efa94666f632.ngrok.io/'
 
   constructor(public http: HttpClient) {
     console.log('Hello MoneyProvider Provider');
@@ -29,5 +29,8 @@ export class MoneyProvider {
         event.complete()
       }
     });
+  }
+  graph(number){
+    return this.tempURL+'plot.png?number='+number
   }
 }

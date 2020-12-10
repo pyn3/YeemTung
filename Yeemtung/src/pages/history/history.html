@@ -7,25 +7,45 @@
 <ion-header>
   <ion-navbar>
     <ion-title>History</ion-title>
-    <button ion-button (click)="refresh()" clear>
+    <button ion-button (click)="refresh()" clear large>
       <ion-icon name="refresh"></ion-icon>
     </button>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
-  <ion-list>
-    <ion-item *ngFor="let item of itemListData" class="background">
-      <p>{{item.Money}}</p>
-      <p>{{item.lender}}</p>
-      <p>{{item.borrower}}</p>
-      <p>{{item.money}}</p>
-      <p>{{item.time}}</p>
+<ion-content>
+
+  <ion-item>
+    <ion-row>
+      <ion-col text-right>From</ion-col>
+      <ion-col text-center>
+        <ion-icon name="arrow-round-forward"></ion-icon>
+      </ion-col>
+      <ion-col text-left>To</ion-col>
+    </ion-row>
+  </ion-item>
+
+  <ion-list padding-right>
+    <ion-item *ngFor="let item of itemListData">  
+      <ion-row>
+        <ion-col text-right>
+          <p>{{item.lender}}</p>
+        </ion-col>
+        <ion-col text-center>
+          <ion-icon name="arrow-round-forward"></ion-icon>
+        </ion-col>
+        <ion-col text-left>
+          <p>{{item.borrower}}</p>
+        </ion-col>
+      </ion-row>
+      <p text-center padding-top>Money: {{item.money}}</p>
+      <p text-center padding-top>Date: {{item.time}}</p>
     </ion-item>
   </ion-list>
-  <ion-infinite-scroll (ionInfinite) = 'doInfiniteScroll($event)'>
-    <ion-infinite-scroll-content loadingSpinner = "bubbles" loadingtext = "loading">
+  
+  <ion-infinite-scroll (ionInfinite)='doInfiniteScroll($event)'>
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingtext="loading">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
- </ion-content>
+</ion-content>
